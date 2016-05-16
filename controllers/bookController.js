@@ -4,18 +4,16 @@ module.exports.controller = function(app) {
   
   app.get('/api/books', function(req, res) {
     Book.getBooks(function(err, books) {
-      if (err) {
-        throw err;
-      };
+      if(err) { throw err };
+
       res.json(books);
     });
   });
 
   app.get('/api/books/:_id', function(req, res) {
     Book.getBookById(req.params._id, function(err,book ) {
-      if (err) {
-        throw err;
-      };
+      if(err) { throw err };
+      
       res.json(book);
     });
   });
@@ -23,9 +21,8 @@ module.exports.controller = function(app) {
   app.post('/api/books', function(req, res) {
     var book = req.body;
     Book.addBook(book, function(err, book) {
-      if (err) { 
-        throw err; 
-      };
+      if(err) { throw err };
+      
       res.json(book);
     });
   });
@@ -34,9 +31,8 @@ module.exports.controller = function(app) {
     var bookId = req.params._id;
     var book = req.body;
     Book.updateBook(bookId, book, {}, function(err, updatedBook) {
-      if(err) { 
-        throw err;
-      };
+      if(err){ throw err };
+      
       res.json(updatedBook);
     });
   });
@@ -44,9 +40,8 @@ module.exports.controller = function(app) {
   app.delete('/api/books/:_id', function(req, res) {
     var bookId = req.params._id;
     Book.removeBook(bookId, function(err, book) {
-      if(err) {
-        throw err;
-      };
+      if(err){ throw err };
+     
       res.json(book);
     });
   });
