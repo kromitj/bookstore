@@ -6,10 +6,14 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "engines": {
+    "node": "4.x.x"
+  },
   "dependencies": {
     "express":"*",
     "body-parser":"*",
-    "mongoose": "*"
+    "mongoose": "*",
+    "dotenv": "^1.2.0"
   },
   "author": "",
   "license": "ISC"
